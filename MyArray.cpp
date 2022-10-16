@@ -1,7 +1,5 @@
 #include "MyArray.h" 
 
-using namespace std;
-
 MyArray::MyArray(){
     sizeM = 0;
     storageM = new EType[sizeM];
