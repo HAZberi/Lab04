@@ -44,6 +44,8 @@ int main() {
         cout<< sv.at(i);
         cout << endl;
     }
+
+    cout << "\nTranspose Output:\n"; 
     
     String_Vector vs = transpose(sv);
     for(int i = 0; i < (int)vs.size(); i++)
@@ -55,10 +57,17 @@ int main() {
 
 
 String_Vector transpose (const String_Vector& sv) {
-    
-    // STUDENTS MUST COMPLETE THE DEFINITION OF THIS FUNCTION.
      
     String_Vector vs;
+
+    vs.resize(sv.at(0).size());
+
+    for(int i=0; i<sv.size(); i++){
+        for(int j=0; j<sv[i].size(); j++){
+            vs.at(j).push_back(sv[i][j]);
+        }
+    }
+
     return vs;
     
 }
