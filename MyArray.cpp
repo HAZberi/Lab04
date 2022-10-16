@@ -11,8 +11,15 @@ MyArray::MyArray(const EType *builtin, int sizeA){
     sizeM = sizeA;
     storageM = new EType[sizeM];
     for(int i=0; i<sizeM; i++){
-        storageM[i] = *builtin;
-        builtin++;
+        storageM[i] = *(builtin + i);
+    }
+}
+
+MyArray::MyArray(const MyArray& source){
+    sizeM = source.size();
+    storageM = new EType[sizeM];
+    for(int i=0; i<sizeM; i++){
+        storageM[i] = source.at(i);
     }
 }
 
@@ -32,9 +39,7 @@ void MyArray::resize(int new_size){
     EType *temp = new EType[new_size];
 
     for(int i=0; i<new_size; i++){
-        temp[i] = *storageM;
-        temp++;
-        storageM++;
+        temp[i] = *(storageM + i);
     }
     sizeM = new_size;
     
@@ -49,7 +54,6 @@ MyArray& MyArray::operator=(const MyArray &rhs){
         storageM = new EType[sizeM];
         for(int i=0; i<sizeM; i++){
             storageM[i] = rhs.at(i);
-            storageM++;
         }
     }
 
