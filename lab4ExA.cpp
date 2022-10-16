@@ -12,6 +12,7 @@ using namespace std;
 
 int main()
 {
+  
   int i;
 
   // Create empty array, then grow it.
