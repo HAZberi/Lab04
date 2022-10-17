@@ -1,3 +1,10 @@
+/*
+ *  MyArray.cpp
+ *  ENSF 614 Lab 4, Exercise A
+ *  Completed by: Hassaan Ahmed Zuberi
+ *  Submitted on: Oct 17, 2022
+ */
+
 #include "MyArray.h" 
 
 MyArray::MyArray(){
