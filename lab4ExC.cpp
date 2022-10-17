@@ -4,7 +4,6 @@
 #include <sstream>
 #include <stdlib.h>
 
-const int size = 6;
 using namespace std;
 struct City {
     double x, y;
@@ -26,6 +25,7 @@ void print_from_binary(char* filename);
 
 
 int main() {
+    const int size = 6;
     char bin_filename[] = "cities.bin";
     
     City cities[size] = {{100, 50, "Calgary"},
@@ -48,13 +48,44 @@ void write_binary_file(City cities[], int size, char* filename){
         exit(1);
     }
     
-    for(int i =0; i < size; i++)
+    for(int i =0; i < size; i++){
         stream.write((char*)&cities[i], sizeof(City));
+    }
+
     stream.close();
 }
 
 void print_from_binary(char* filename) {
-    /* Studnets must complete the implementaiton of this file. */
+    ifstream input(filename, ios::in | ios::binary);
+
+    string mystring = string(filename) + ".txt";
+
+    const char* txt_filename = mystring.c_str(); 
+    ofstream output(txt_filename);
+
+    if(input.fail()){
+        cerr << "failed to open file: " << filename << endl;
+        exit(1);
+    }
+
+    if(output.fail()){
+        cerr << "failed to open file: " << txt_filename << endl;
+        exit(1);
+    }
+
+    output << "The content of the binary file is:" << endl;
+
+    while(!input.eof()){
+        City city;
+        input.read((char*)(&city), sizeof(City));
+
+        if(input.eof()) break;
+
+        output << "Name: " << city.name << ", x coordinate: " << city.x << ", y coordinate: " << city.y << endl;
+        cout << "Name: " << city.name << ", x coordinate: " << city.x << ", y coordinate: " << city.y << endl;
+    }
+    output.close();
+    input.close();
 
 }
 

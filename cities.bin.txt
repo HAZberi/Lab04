@@ -1,0 +1,7 @@
+The content of the binary file is:
+Name: Calgary, x coordinate: 100, y coordinate: 50
+Name: Edmonton, x coordinate: 100, y coordinate: 150
+Name: Vancouver, x coordinate: 50, y coordinate: 50
+Name: Regina, x coordinate: 200, y coordinate: 50
+Name: Toronto, x coordinate: 500, y coordinate: 50
+Name: Montreal, x coordinate: 200, y coordinate: 50
